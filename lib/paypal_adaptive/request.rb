@@ -86,8 +86,8 @@ module PaypalAdaptive
       http = Net::HTTP.new(url.host, 443)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-      https.ca_path = '/etc/ssl/certs' if File.exists?('/etc/ssl/certs') # Ubuntu, Debian
-      # https.ca_file = '/opt/local/share/curl/curl-ca-bundle.crt' if File.exists?('/opt/local/share/curl/curl-ca-bundle.crt') # Mac OS X
+      http.ca_path = '/etc/ssl/certs' if File.exists?('/etc/ssl/certs') # Ubuntu, Debian
+      # http.ca_file = '/opt/local/share/curl/curl-ca-bundle.crt' if File.exists?('/opt/local/share/curl/curl-ca-bundle.crt') # Mac OS X
 
       if @ssl_cert_file
         cert = File.read(@ssl_cert_file)
